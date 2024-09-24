@@ -9,6 +9,8 @@ body {
     background-color: #f9fafc;
 }
 
+/*Navbar style*/
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -17,6 +19,33 @@ body {
     background-color: #2d6187;
     color: white;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-left {
+    flex: 1;
+}
+
+.navbar-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-center ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .navbar-left h1 {
@@ -24,17 +53,14 @@ body {
     color: #e9f2f9;
 }
 
-.navbar-center ul {
-    list-style: none;
-    display: flex;
-    gap: 40px;
+.navbar-center ul li {
+    position: relative;
 }
 
 .navbar-center ul li a {
     color: #e9f2f9;
     text-decoration: none;
     font-size: 1.2em;
-    position: relative;
     padding: 5px;
     transition: color 0.4s ease;
 }
@@ -80,6 +106,19 @@ body {
     background-color: #498b8a;
 }
 
+.navbar-center ul:hover .nav-item {
+    opacity: 0.4;
+    transition: opacity 0.4s ease;
+}
+
+.navbar-center ul li:hover .nav-item {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+/*Responsive navbar*/
+
+
 .appointment-block {
     display: flex;
     justify-content: space-between;
@@ -115,9 +154,9 @@ body {
 }
 
 .p-content img {
-    width: 20%; /* Make the image take 20% of the available space (larger than text) */
-    height: auto; /* Maintain the aspect ratio */
-    max-width: 150px; /* Set a maximum width for the image */
+    width: 20%; 
+    height: auto; 
+    max-width: 150px; 
     margin-right: 15px; /* Adds space between the image and the text */
     /* Rectangular shape, no border-radius */
 }
@@ -158,6 +197,84 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+@keyframes buttonGlow {
+    0% {
+        box-shadow: 0 0 15px rgba(0, 123, 204, 0.5), 0 0 30px rgba(0, 123, 204, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(0, 123, 204, 0.7), 0 0 50px rgba(0, 123, 204, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(0, 123, 204, 0.5), 0 0 30px rgba(0, 123, 204, 0.3);
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column; /* Stack the heading on top */
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px; /* Set max-width for larger screens */
+    text-align: center;
+}
+
+.choices h3 {
+    font-size: 2.2em;
+    color: #003366;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    border-bottom: 2px solid #007acc;
+    padding-bottom: 10px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center; /* Align buttons in a single line */
+    align-items: center;
+    gap: 40px; /* Spacing between buttons */
+    margin-top: 30px;
+    width: 100%;
+}
+
+.choice button {
+    width: 180px;
+    height: 180px;
+    background-color: #1e3d59;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.3s ease;
+    animation: buttonGlow 3s infinite ease-in-out; /* Glowing effect for buttons */
+    position: relative;
+}
+
+.choice button:hover {
+    background-color: #007acc;
+    transform: scale(1.1); /* Slight scaling on hover */
+    box-shadow: 0 15px 25px rgba(0, 123, 204, 0.6); /* Stronger shadow on hover */
+}
+
+.choice button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 153, 255, 0.5); /* Focus outline */
+}
+
 .specialties-section {
     text-align: center;
     padding: 30px;
@@ -187,17 +304,38 @@ body {
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.8s ease, box-shadow 0.8s ease, border 0.8s ease;
 }
 
 .specialty-item img:hover {
-    transform: scale(1.05);
+    animation: rotateAndReturn 0.6s ease-in-out; /* Adds an animation on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Increases the shadow depth */
+    border: 3px solid #2d6187; /* Adds a border that matches the text color */
 }
 
 .specialty-item p {
     margin-top: 6px;
-    font-size: 0.9em; /* Slightly smaller font size */
+    font-size: 0.9em;
     color: #2d6187;
+    transition: color 0.3s ease;
+}
+
+.specialty-item:hover p {
+    color: #000000; /* Changes text color on hover */
+    font-weight: bold;
+}
+
+/* Keyframes for rotate and return effect */
+@keyframes rotateAndReturn {
+    0% {
+        transform: rotate(0deg) scale(1); /* Start from normal */
+    }
+    50% {
+        transform: rotate(10deg) scale(1.05); /* Rotate slightly and scale up */
+    }
+    100% {
+        transform: rotate(0deg) scale(1); /* Return to normal */
+    }
 }
 
 .top-doctors-section {
@@ -226,7 +364,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .doctor-card:hover {
@@ -293,7 +431,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 50px;
+    padding: 70px;
     margin: 50px auto;
     width: 80%;
     background-color: #2d3e50; /* Dark background */
@@ -344,5 +482,28 @@ body {
     border-radius: 10px;
     position: absolute;
     left: 0;
-    transform: translateY(-2%); /* Shift 2% upwards, outside the background */
+    transform: translateY(41.25%); /* Shift 2% upwards, outside the background */
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .buttons-container {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+        gap: 20px;
+    }
+    .choice button {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .choices h3 {
+        font-size: 1.8em;
+    }
+    .choice button {
+        width: 120px;
+        height: 120px;
+        font-size: 16px;
+    }
 }
