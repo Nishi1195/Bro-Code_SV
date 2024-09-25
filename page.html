@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Doctors - Sanjeevani</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="page.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <h1>Sanjeevani</h1>
+        </div>
+        <div class="navbar-center">
+            <ul>
+                <li><a href="index.html" class="nav-item">Home</a></li>
+                <li><a href="#" class="nav-item">All Doctors</a></li>
+                <li><a href="#" class="nav-item">About</a></li>
+                <li><a href="#" class="nav-item">Contact</a></li>
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <button class="create-account-btn">Create Account</button>
+        </div>
+    </nav>    
+
+    <div class="top-doctors-section">
+        <h3>Top Doctors to Book</h3>
+        
+        <!-- Selected Doctor Card -->
+        <div class="selected-doctor-card">
+            <img id="selected-doctor-img" src="asset/doc1.png" alt="Selected Doctor">
+            <div class="doctor-info">
+                <p id="selected-doctor-name">Dr. John Doe</p>
+                <p id="selected-doctor-specialization">Cardiologist</p>
+                <p id="selected-doctor-availability">Available</p>
+                <p id="selected-doctor-hospital">Works at: General Hospital</p>
+                <p id="selected-doctor-education">Education: MBBS, MD - Cardiology</p>
+                <p id="selected-doctor-description">Highly experienced Cardiologist with over 20 years of expertise in cardiac care.</p>
+                <button class="book-appointment-btn">Book Appointment</button>
+            </div>
+        </div>
+
+        <!-- Other Doctor Cards -->
+        <div class="doctors-container">
+            <div class="doctor-card" onclick="selectDoctor('Dr. Jane Smith', 'Dermatologist', 'Available', 'Highly rated Dermatologist specializing in skincare.', 'asset/doc2.png', 'Skin Care Hospital', 'MBBS, MD - Dermatology')">
+                <img src="asset/doc2.png" alt="Doctor 2">
+                <p class="doctor-name">Dr. Jane Smith</p>
+                <p class="specialization">Dermatologist</p>
+                <p class="availability">Available</p>
+            </div>
+
+            <div class="doctor-card" onclick="selectDoctor('Dr. Emily White', 'Neurologist', 'Available', 'Experienced Neurologist known for treating complex brain disorders.', 'asset/doc3.png', 'Brain Research Institute', 'MBBS, MD - Neurology')">
+                <img src="asset/doc3.png" alt="Doctor 3">
+                <p class="doctor-name">Dr. Emily White</p>
+                <p class="specialization">Neurologist</p>
+                <p class="availability">Available</p>
+            </div>
+
+            <div class="doctor-card" onclick="selectDoctor('Dr. James Brown', 'Gynecologist', 'Available', 'Expert Gynecologist with a focus on women\'s health.', 'asset/doc4.png', 'Women\'s Health Clinic', 'MBBS, MD - Gynecology')">
+                <img src="asset/doc4.png" alt="Doctor 4">
+                <p class="doctor-name">Dr. James Brown</p>
+                <p class="specialization">Gynecologist</p>
+                <p class="availability">Available</p>
+            </div>
+
+            <div class="doctor-card" onclick="selectDoctor('Dr. Sarah Lee', 'Pediatrician', 'Available', 'Renowned Pediatrician with years of experience in child healthcare.', 'asset/doc5.png', 'Children\'s Hospital', 'MBBS, MD - Pediatrics')">
+                <img src="asset/doc5.png" alt="Doctor 5">
+                <p class="doctor-name">Dr. Sarah Lee</p>
+                <p class="specialization">Pediatrician</p>
+                <p class="availability">Available</p>
+            </div>
+        </div>
+
+        <br><br>
+        <button class="more-doctors-btn">More</button>
+    </div>
+
+    <script src="page.js"></script>
+</body>
+</html>
